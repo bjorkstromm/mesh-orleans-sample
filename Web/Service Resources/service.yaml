@@ -1,0 +1,28 @@
+﻿## Service definition ##
+application:
+  schemaVersion: 1.0.0-preview1
+  name: mesh_orleans_sample
+  properties:
+    services:
+      - name: Web
+        properties:
+          description: Web description.
+          osType: Windows
+          codePackages:
+            - name: Web
+              image: web:dev
+              endpoints:
+                - name: WebListener
+                  port: 20007
+              environmentVariables:
+                - name: ASPNETCORE_URLS
+                  value: http://+:20007
+#                - name: ApplicationInsights:InstrumentationKey
+#                  value: "<Place AppInsights key here, or reference it via a secret>"
+              resources:
+                requests:
+                  cpu: 0.5
+                  memoryInGB: 1
+          replicaCount: 1
+          networkRefs:
+            - name: mesh_orleans_sampleNetwork

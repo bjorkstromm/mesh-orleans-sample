@@ -1,0 +1,25 @@
+﻿## Service definition ##
+application:
+  schemaVersion: 1.0.0-preview1
+  name: mesh_orleans_sample
+  properties:
+    services:
+      - name: Silo
+        properties:
+          description: Silo description.
+          osType: Windows
+          codePackages:
+            - name: Silo
+              image: silo:dev
+              endpoints:
+                - name: SiloListener
+                  port: 20004
+                - name: SiloPort
+                  port: 20005
+              resources:
+                requests:
+                  cpu: 0.5
+                  memoryInGB: 1
+          replicaCount: 1
+          networkRefs:
+            - name: mesh_orleans_sampleNetwork

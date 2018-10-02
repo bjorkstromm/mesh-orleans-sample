@@ -1,0 +1,5 @@
+﻿application:
+  schemaVersion: 1.0.0-preview1
+  name: mesh_orleans_sample
+  properties:
+    description: mesh_orleans_sample description.

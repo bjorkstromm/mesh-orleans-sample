@@ -1,0 +1,14 @@
+## Network definition ##
+network:
+  schemaVersion: 1.0.0-preview1
+  name: mesh_orleans_sampleNetwork
+  properties:
+    description: mesh_orleans_sampleNetwork description.
+    addressPrefix: 10.0.0.4/22
+    ingressConfig:
+      layer4:
+        - name: WebIngress
+          publicPort: 20007
+          applicationName: mesh_orleans_sample
+          serviceName: Web
+          endpointName: WebListener
